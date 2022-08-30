@@ -1,0 +1,43 @@
+<!--HTML for the notes/journalpage-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="shortcut icon" type="image/jpg" href="pug.png" />
+		<!--title of the page-->
+		<title>Sign Up</title>
+	</head>
+
+	<body>
+		<nav>
+			<!--links to starting page & login page-->
+			<a href='start'>back</a>
+			<a href='login'>log in</a>
+		</nav>
+		<main>
+			<div>
+				<h2>sign up for mood-e!</h2>
+				<form action='/~/mooode/signup' method='POST' enctype='multipart/form-data'>
+					<!-- Username and password are mandatory to create an account -->
+					<c>
+						<input type='email' name='username' placeholder='email' required>
+						<br>
+						<input type='password' name='password' placeholder='password' required>
+						<br>
+						<signupb>
+							<input type='submit' value='sign up'>
+						</signupb>
+						<input type='hidden' name='redirecturl' value='/~/moode/home'>
+					</c>
+				</form>
+			</div>
+		</main>
+		<footer>
+			milligram ©
+		</footer>
+	</body>
+
+</html>

@@ -1,0 +1,412 @@
+<!--HTML for the notes/journalpage-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<!-- include the jQuery UI style sheet -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<!-- include jQuery -->
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<!-- include jQuery UI -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+	<body>
+
+		<nav>
+			<!--https://getbootstrap.com/docs/4.0/components/navbar/-->
+			<a href='habit'>habit</a>
+			<a href='water'>water</a>
+			<a href='journal'><b>mood journal</b></a>
+			<a href='resources'>resources</a>
+			<a href='home'>home</a>
+		</nav>
+
+		<h5> <a href="#" title="click the mood you're feeling for the d :) ">INSTRUCTIONS</a></h5>
+
+		<button class="smile" onclick="changeColor('#418107')"><i class="fa fa-smile-o"></i></button>
+		<button class="meh" onclick="changeColor('#fdf731')"><i class="fa fa-meh-o"></i></button>
+		<button class="frown" onclick="changeColor('#e93f33')"><i class="fa fa-frown-o"></i></button>
+
+
+		<form id="journaltable" action="/~/moode/account/journaltable" method="POST" enctype="multipart/form-data">
+			<div class="section">
+				<p id="demo"></p>
+				<span>
+					<textarea id="journal" textarea="" name="journal" placeholder="hey! what's up?" spellcheck="false"></textarea>
+				</span>
+				<div class="section">
+
+					<!-- interactive button for saving journal -->
+					<button class="button" id="save journal" button="" onclick="updateEntry()">
+						save journal</button>
+				</div>
+			</div>
+		</form>
+
+
+		<script>
+			// function for the info box to pop up upon hover
+			$(function () {
+				$(document)
+					.tooltip();
+			});
+
+			const $textarea = document.querySelector('textarea');
+			const $button = document.querySelector('button');
+			const headers = { 'Content-Type': 'application/json' };
+
+			async function getEntry($textarea) {
+				const resp = await fetch('/~/moode/account/journaltable?all=true');
+				const ans = await resp.json();
+				if (!ans[0]) return;
+
+				$textarea.value = ans[0].journal;
+				document.querySelector('a.ui-state-default.ui-state-active')
+					.style.background = ans[0].colour
+				$textarea.id = ans[0]._id;
+			}
+
+			async function updateEntry(e) {
+				const payload = { journal: $textarea.value, colour: document.querySelector('a.ui-state-default.ui-state-active')
+						.style.background };
+				if ($textarea.id !== 'undefined' && $textarea.id !== undefined) {
+					payload.id = $textarea.id;
+				}
+				const resp = await fetch('/~/moode/account/journaltable', {
+					method: $textarea.id ? 'PATCH' : 'POST',
+					headers,
+					body: JSON.stringify(payload)
+				})
+				const ans = await resp.json();
+				$textarea.id = ans._id;
+			}
+
+			if ($button) $button.addEventListener('click', updateEntry);
+
+			if ($textarea) getEntry($textarea);
+		</script>
+
+		<div id="datepicker"></div>
+
+		<script type="text/javascript">
+			$(function () {
+				$("#datepicker")
+					.datepicker({
+						numberOfMonths: 1
+					});
+			});
+
+			// today's date
+
+			var d = new Date();
+			var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+			document.getElementById("demo")
+				.innerHTML = days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+		</script>
+
+		<script>
+			const dt = new Date();
+			const datestring = dt.toDateString()
+				.replace(/ /g, "_");
+			async function updateJournal() {
+				const resp = await fetch(`/~/moode/account/journaltable?all=true`, {
+					method: 'GET',
+					headers: { 'content-Type': 'application/json' }
+				})
+				const ans = await resp.json();
+				// 					[
+				// 						{
+				// 							"drop1done": "1",
+				// 							"drop2done": "2",
+				// 							"drop3done": "3",
+				// 							"drop8done": "8",
+				// 							"_id": "611c4477e719900015801a2c"
+				// 						 }
+				//					 ]
+				if (
+					!ans.length
+				)
+					return;
+
+				// to do: Take data from ans and update the form
+			}
+			updateJournal();
+
+			document.getElementById("journaltable")
+				.action = `/~/moode/account/journaltable`
+
+			// function changeColor(colorName) {
+			// 	document.querySelector('a.ui-state-default.ui-state-highlight.ui-state-active')
+			// 		.style.background = colorName;
+			// }
+
+			function changeColor(colorName) {
+				document.querySelector('a.ui-state-default.ui-state-active')
+					.style.background = colorName;
+			}
+
+			// <a class="ui-state-default" href="#">11</a>
+
+			// function changeColor(colorName) {
+			// 	document.body.style.background = colorName;
+			// }
+
+			// to do: Take data from ans and update the form
+
+			// <!--const $textarea = document.querySelector('textarea');-->
+			// <!--const $button = document.querySelector('button');-->
+			// <!--const headers = { 'Content-Type': 'application/json' };-->
+
+			// <!--async function getEntry($textarea) {-->
+			// <!--	const resp = await fetch('/~/mayneet/account/entry?all=true');-->
+			// <!--	const ans = await resp.json();-->
+			// <!--	if (!ans[0]) return;-->
+
+			// <!--	$textarea.value = ans[0].text;-->
+			// <!--	$ = ans[0]._id;-->
+			// <!--	textarea.id-->
+			// <!--}-->
+
+			// <!--async function updateEntry(e) {-->
+			// <!--		const payload = { text: $textarea.value };-->
+			// <!--		if ($textarea.id !== 'undefined' && $textarea.id !== undefined) {-->
+			// <!--			payload.id = $textarea.id;-->
+			// <!--		}-->
+			// <!--		const resp = await fetch('/~/mayneet/account/entry', {-->
+			// <!--			method: $textarea.id ? 'PATCH' : 'POST',-->
+			// <!--			headers,-->
+			// <!--			body: JSON.stringify(payload)-->
+			// <!--		})-->
+			// <!--		const ans = await resp.json();-->
+			// <!--		$textarea.id = ans._id;-->
+			// <!--		if ($button) $button.addEventListener('click', updateEntry);-->
+
+			// <!--		if ($textarea) getEntry($textarea);-->
+		</script>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+			@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+			div.section {
+				position: relative;
+				left: 850px;
+				top: 30px;
+
+			}
+
+			textarea {
+				width: 350px;
+				height: 250px;
+				resize: none;
+				border-radius: 16px;
+				border: 0px;
+				padding: 30px 30px;
+				font-family: Montserrat;
+				font-size: 14px;
+				text-transform: none;
+			}
+
+			button#save\ journal {
+				position: relative;
+				right: 550px;
+				top: -20px;
+				width: 105px;
+				height: 30px;
+				border-radius: 16px;
+				border-color: #e3dbd0;
+				font-family: Montserrat;
+				font-size: 14px;
+			}
+
+			button#save\ journal:hover {
+				cursor: pointer;
+			}
+
+
+			button.smile {
+				position: relative;
+				top: 120px;
+				left: 210px;
+				color: green;
+				background-color: transparent;
+				border: transparent;
+				font-size: 100px;
+				font-weight: 50px;
+			}
+
+			button.meh {
+				position: relative;
+				top: 120px;
+				left: 310px;
+				color: yellow;
+				background-color: transparent;
+				border: transparent;
+				font-size: 100px;
+				font-weight: 50px;
+
+			}
+
+			button.frown {
+				position: relative;
+				top: 120px;
+				left: 410px;
+				color: red;
+				background-color: transparent;
+				border: transparent;
+				font-size: 100px;
+				font-weight: 50px;
+
+			}
+
+			button.smile:hover {
+				color: white;
+				cursor: pointer;
+			}
+
+			button.meh:hover {
+				color: white;
+				cursor: pointer;
+
+			}
+
+			button.frown:hover {
+				color: white;
+				cursor: pointer;
+			}
+
+
+
+			/*button.meh {*/
+			/*	position: absolute;*/
+			/*	background-color: yellow;*/
+			/*	right: 300px;*/
+			/*	top: 300px;*/
+			/*}*/
+
+			/*button.frown {*/
+			/*	position: absolute;*/
+			/*	right: 300px;*/
+			/*	top: 300px;*/
+			/*}*/
+
+
+
+			p {
+				font-family: Homemade Apple;
+				font-size: 28px;
+				position: relative;
+				right: 15px;
+				top: -30px;
+				width: 450px;
+			}
+
+
+			.ui-datepicker-month {
+				font-weight: bolder;
+				font-family: Montserrat;
+			}
+
+			.ui-datepicker-year {
+				font-weight: bolder;
+				font-family: Montserrat;
+			}
+
+			tr {
+				font-weight: bolder;
+				font-family: Montserrat;
+			}
+
+			.ui-state-default,
+			.ui-widget-content .ui-state-default,
+			.ui-widget-header .ui-state-default,
+			.ui-button,
+			html .ui-button.ui-state-disabled:hover,
+			html .ui-button.ui-state-disabled:active {
+				font-family: Montserrat;
+				background-color: #e3dbd0;
+			}
+
+			.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+				border-radius: 16px;
+				background-color: #e3dbd0;
+			}
+
+			.ui-state-highlight,
+			.ui-widget-content .ui-state-highlight,
+			.ui-widget-header .ui-state-highlight {
+				/*background: #b08c77;*/
+				border: black;
+				color: black;
+			}
+
+			a.ui-state-default.ui-state-highlight.ui-state-active {
+				border: black;
+				color: black;
+
+				/*background-color: #d5bfaa;*/
+			}
+
+			.ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+				background-color: #d5bfaa;
+				border: 4px solid #e3dbd0;
+			}
+
+			.ui-state-active,
+			.ui-widget-content .ui-state-active,
+			.ui-widget-header .ui-state-active,
+			a.ui-button:active,
+			.ui-button:active,
+			.ui-button.ui-state-active:hover {
+				/*background-image: url(paper.jpeg);*/
+
+				border: 2px solid #b08c77;
+				background: #e3dbd0;
+				font-weight: normal;
+				color: #ffffff;
+			}
+
+			.ui-datepicker {
+				position: relative;
+				top: -300px;
+				right: 260px;
+
+				border-radius: 16px;
+
+				margin: auto;
+				width: 500px
+			}
+
+			.ui-state-default {
+				border-radius: 5px;
+			}
+		</style>
+
+
+		<main>
+			<div>
+				<!--<h1>-->
+
+				<!--</h1>-->
+				<!--<h2>-->
+
+				<!--</h2>-->
+			</div>
+		</main>
+		<footer>
+			MAYNEET ©
+		</footer>
+
+
+	</body>
+
+</html>

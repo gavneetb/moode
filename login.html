@@ -1,0 +1,51 @@
+<!--HTML for the lpage-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="shortcut icon" type="image/jpg" href="pug.png" />
+		<!--title of page-->
+		<title>Log In</title>
+	</head>
+
+	<body>
+		<nav>
+			<!--links to the start page & the signup page-->
+			<a href='start'>back</a>
+			<a href='signup'>sign up</a>
+		</nav>
+		<main>
+			<div>
+				<e>
+					<h2>log in to mood-e!</h2>
+					<!--takes users email and password-->
+					<form action='/~/moode/login' method='POST' enctype='multipart/form-data'>
+						<!-- Username and password are mandatory to log in -->
+						<c>
+							<input type='email' name='username' placeholder='email' required>
+							<br>
+							<input type='password' name='password' placeholder='password' required>
+							<br>
+							<loginb>
+								<input type='submit' value='log in'>
+							</loginb>
+							<!-- Set a redirect page that a user goes to after signing up, change PAGENAME2REDIRECT to what you want -->
+							<input type='hidden' name='redirecturl' value='/~/moode/home'>
+						</c>
+					</form>
+				</e>
+
+
+			</div>
+
+
+		</main>
+		<footer>
+			MAYNEET ©
+		</footer>
+	</body>
+
+</html>

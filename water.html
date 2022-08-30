@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+			button {
+				position: absolute;
+				width: 105px;
+				height: 30px;
+				bottom: 40px;
+				right: 30px;
+				border-radius: 16px;
+				border-color: #e3dbd0;
+				font-family: Montserrat;
+				font-size: 14px;
+			}
+
+			.dropwrapper {
+				position: absolute;
+				top: 425px;
+				left: 280px;
+			}
+
+			"checkbox" {
+				position: absolute;
+				
+
+			}
+
+			form#watertable r {
+				position: absolute;
+				bottom: 300px;
+			}
+
+			form#watertable t {
+				position: relative;
+				bottom: 100px\\\;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<nav>
+			<!--https://getbootstrap.com/docs/4.0/components/navbar/-->
+
+			<a href='habit'>habit</a>
+			<a href='water'><b>water</b></a>
+			<a href='journal'>mood journal</a>
+			<a href='resources'>resources</a>
+			<a href='home'>home</a>
+		</nav>
+
+		<form id="watertable" action="/~/moode/account/watertable" method="POST" enctype="multipart/form-data">
+			<div class="dropwrapper">
+				<r>
+					<label for="cdrop1"><img src="beforewater.png" id="drop1" class="clear"></label><input type="checkbox" id="cdrop1" name=drop1done value='1' style="display:none">
+					<label for="cdrop2"><img src="beforewater.png" id="drop2" class="clear"></label><input type="checkbox" id="cdrop2" name=drop2done value='2' style="display:none">
+					<label for="cdrop3"><img src="beforewater.png" id="drop3" class="clear"></label><input type="checkbox" id="cdrop3" name=drop3done value='3' style="display:none">
+					<label for="cdrop4"><img src="beforewater.png" id="drop4" class="clear"></label><input type="checkbox" id="cdrop4" name=drop4done value='4' style="display:none">
+				</r>
+				<t>
+					<label for="cdrop5"><img src="beforewater.png" id="drop5" class="clear"></label><input type="checkbox" id="cdrop5" name=drop5done value='5' style="display:none">
+					<label for="cdrop6"><img src="beforewater.png" id="drop6" class="clear"></label><input type="checkbox" id="cdrop6" name=drop6done value='6' style="display:none">
+					<label for="cdrop7"><img src="beforewater.png" id="drop7" class="clear"></label><input type="checkbox" id="cdrop7" name=drop7done value='7' style="display:none">
+					<label for="cdrop8"><img src="beforewater.png" id="drop8" class="clear"></label><input type="checkbox" id="cdrop8" name=drop8done value='8' style="display:none">
+				</t>
+			</div>
+			<div><button onClick='savewater()'>save</button></div>
+
+		</form>
+		<!--instructions-->
+		<h5> <a href="#" title="click on a waterdrop for every cup of water that you drink! ">INSTRUCTIONS</a></h5>
+
+		<main>
+
+
+			<script>
+				// function for the info box to pop up upon hover
+				$(function () {
+					$(document)
+						.tooltip();
+				});
+
+				const d = new Date();
+				const datestring = d.toDateString()
+					.replace(/ /g, "_");
+
+				let drop1 = document.getElementById('drop1');
+				drop1.addEventListener('click', () => {
+					if (drop1.classList.contains('clear')) {
+						drop1.classList.remove('clear');
+						drop1.classList.add('blue');
+						drop1.src = 'afterwater.png';
+					} else {
+						drop1.classList.remove('blue');
+						drop1.classList.add('clear');
+						drop1.src = 'beforewater.png';
+					}
+				});
+
+				let drop2 = document.getElementById('drop2');
+				drop2.addEventListener('click', () => {
+					if (drop2.classList.contains('clear')) {
+						drop2.classList.remove('clear');
+						drop2.classList.add('blue');
+						drop2.src = 'afterwater.png';
+					} else {
+						drop2.classList.remove('blue');
+						drop2.classList.add('clear');
+						drop2.src = 'beforewater.png';
+					}
+				});
+
+				let drop3 = document.getElementById('drop3');
+				drop3.addEventListener('click', () => {
+					if (drop3.classList.contains('clear')) {
+						drop3.classList.remove('clear');
+						drop3.classList.add('blue');
+						drop3.src = 'afterwater.png';
+					} else {
+						drop3.classList.remove('blue');
+						drop3.classList.add('clear');
+						drop3.src = 'beforewater.png';
+					}
+				});
+
+				let drop4 = document.getElementById('drop4');
+				drop4.addEventListener('click', () => {
+					if (drop4.classList.contains('clear')) {
+						drop4.classList.remove('clear');
+						drop4.classList.add('blue');
+						drop4.src = 'afterwater.png';
+					} else {
+						drop4.classList.remove('blue');
+						drop4.classList.add('clear');
+						drop4.src = 'beforewater.png';
+					}
+				});
+
+				let drop5 = document.getElementById('drop5');
+				drop5.addEventListener('click', () => {
+					if (drop5.classList.contains('clear')) {
+						drop5.classList.remove('clear');
+						drop5.classList.add('blue');
+						drop5.src = 'afterwater.png';
+					} else {
+						drop5.classList.remove('blue');
+						drop5.classList.add('clear');
+						drop5.src = 'beforewater.png';
+					}
+				});
+
+				let drop6 = document.getElementById('drop6');
+				drop6.addEventListener('click', () => {
+					if (drop6.classList.contains('clear')) {
+						drop6.classList.remove('clear');
+						drop6.classList.add('blue');
+						drop6.src = 'afterwater.png';
+					} else {
+						drop6.classList.remove('blue');
+						drop6.classList.add('clear');
+						drop6.src = 'beforewater.png';
+					}
+				});
+
+				let drop7 = document.getElementById('drop7');
+				drop7.addEventListener('click', () => {
+					if (drop7.classList.contains('clear')) {
+						drop7.classList.remove('clear');
+						drop7.classList.add('blue');
+						drop7.src = 'afterwater.png';
+					} else {
+						drop7.classList.remove('blue');
+						drop7.classList.add('clear');
+						drop7.src = 'beforewater.png';
+					}
+				});
+
+				let drop8 = document.getElementById('drop8');
+				drop8.addEventListener('click', () => {
+					if (drop8.classList.contains('clear')) {
+						drop8.classList.remove('clear');
+						drop8.classList.add('blue');
+						drop8.src = 'afterwater.png';
+					} else {
+						drop8.classList.remove('blue');
+						drop8.classList.add('clear');
+						drop8.src = 'beforewater.png';
+					}
+				});
+
+				function getTime() {
+
+					var t = new Date();
+					// var hours
+					var date = new Date();
+					var day = date.getDay();
+					var hour = date.getHours();
+					var minutes = date.getMinutes();
+					var image
+
+					if (t.getHours() == 12 && t.getMinutes() == 00) {
+						if (drop1.classList.contains('blue')) {
+							drop1.classList.remove('blue');
+							drop1.classList.add('clear');
+							drop1.src = 'beforewater.png';
+						}
+					}
+				}
+
+				getTime();
+
+				async function updateWater() {
+					const resp = await fetch(`/~/mayneet/account/watertable_${datestring}?all=true`, {
+						method: 'GET',
+						headers: { 'content-Type': 'application/json' }
+					})
+					const ans = await resp.json();
+					if (
+						!ans.length
+					)
+						return
+
+					const waterChoices = ans[ans.length - 1];
+					Object.values(waterChoices)
+						.forEach(
+							(choice) => {
+								const image = document.getElementById(`drop${choice}`);
+								image.click();
+							}
+						)
+				}
+				updateWater();
+
+				document.getElementById("watertable")
+					.action = `/~/mayneet/account/watertable_${datestring}`
+			</script>
+
+		</main>
+
+		<footer>
+			MAYNEET ©
+		</footer>
+
+	</body>
+
+</html>

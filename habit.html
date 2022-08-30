@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="script.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+		<style>
+		
+			/*fonts to be used on the page*/
+			@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+			/*textboxes for habit*/
+			form {
+				display: grid;
+				grid-template-rows: auto;
+				grid-template-columns: 1200px;
+				grid-gap: 20px;
+				position: absolute;
+				top: 190px;
+				left: 75px;
+			}
+
+			/*month display*/
+			month {
+				position: relative;
+				left: 1000px;
+				top: 100px;
+				font-family: 'Homemade Apple', cursive;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 60px;
+				color: #000000;
+			}
+
+			/*creates and saves the layout*/
+			div.wrapper {
+				display: grid;
+				grid-template-rows: 100%;
+				grid-template-columns: 200px repeat(31, 35px);
+			}
+
+			.dropwrapper {
+				position: absolute;
+				top: 420px;
+				left: 200px;
+			}
+
+			span, h3 {
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				font-family: 'Homemade Apple', cursive;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 40px;
+				color: #000000;
+			}
+
+			span {
+				font-family: Montserrat;
+				font-weight: bold;
+				font-size: 20px;
+				letter-spacing: 2.5px;
+				color: #000000;
+			}
+
+			/*font in textboxes*/
+			input[type="text"i] {
+				border-radius: 30px;
+				border-color: #b08c77;
+				border-radius: 10px;
+				background-color: white;
+				padding: 5px;
+				margin: 2px;
+				font-family: 'Montserrat';
+				text-align: center;
+			}
+
+			h3 {
+				margin: 0;
+			}
+
+			/*checkboxes*/
+			input[type='checkbox'] {
+				-webkit-appearance: none;
+				width: 25px;
+				height: 25px;
+				background: white;
+				border-radius: 2px;
+				border: 0px solid #555;
+			}
+
+			input[type='checkbox']:checked {
+				background: black;
+			}
+
+			/*save button*/
+			button {
+				position: absolute;
+				top: 450px;
+				left: 1100px;
+				width: 105px;
+				height: 30px;
+				bottom: 40px;
+				right: 30px;
+				border-radius: 16px;
+				border-color: #e3dbd0;
+				font-family: Montserrat;
+				font-size: 14px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<!--navigation bar-->
+		<nav>
+			<a href='habit'><b>habit</b></a>
+			<a href='water'>water</a>
+			<a href='journal'>mood journal</a>
+			<a href='resources'>resources</a>
+			<a href='home'>home</a>
+		</nav>
+		
+		<!--instructions-->
+		<h5> <a href="#" title="type in your habits on the left and click the boxes for every habit you kept up with for each day! reset every month :) ">INSTRUCTIONS</a></h5>
+
+		<!--month-->
+		<month>
+			<div id="date"></div>
+		</month>
+
+
+		<div class="maingrid">
+
+		<!--habit table display-->
+			<form id="habittable" action="/~/moode/account/habittable" method="POST" enctype="multipart/form-data">
+				<div class="wrapper">
+					<h3>habit</h3>
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+					<span>5</span>
+					<span>6</span>
+					<span>7</span>
+					<span>8</span>
+					<span>9</span>
+					<span>10</span>
+					<span>11</span>
+					<span>12</span>
+					<span>13</span>
+					<span>14</span>
+					<span>15</span>
+					<span>16</span>
+					<span>17</span>
+					<span>18</span>
+					<span>19</span>
+					<span>20</span>
+					<span>21</span>
+					<span>22</span>
+					<span>23</span>
+					<span>24</span>
+					<span>25</span>
+					<span>26</span>
+					<span>27</span>
+					<span>28</span>
+					<span>29</span>
+					<span>30</span>
+					<span>31</span>
+				</div>
+				<div class="wrapper">
+					<span><input type="text" id="habit1" name="habit1"></span>
+					<span><input type='checkbox' name='habit1done' value='1'></span>
+					<span><input type='checkbox' name='habit1done' value='2'></span>
+					<span><input type='checkbox' name='habit1done' value='3'></span>
+					<span><input type='checkbox' name='habit1done' value='4'></span>
+					<span><input type='checkbox' name='habit1done' value='5'></span>
+					<span><input type='checkbox' name='habit1done' value='6'></span>
+					<span><input type='checkbox' name='habit1done' value='7'></span>
+					<span><input type='checkbox' name='habit1done' value='8'></span>
+					<span><input type='checkbox' name='habit1done' value='9'></span>
+					<span><input type='checkbox' name='habit1done' value='10'></span>
+					<span><input type='checkbox' name='habit1done' value='11'></span>
+					<span><input type='checkbox' name='habit1done' value='12'></span>
+					<span><input type='checkbox' name='habit1done' value='13'></span>
+					<span><input type='checkbox' name='habit1done' value='14'></span>
+					<span><input type='checkbox' name='habit1done' value='15'></span>
+					<span><input type='checkbox' name='habit1done' value='16'></span>
+					<span><input type='checkbox' name='habit1done' value='17'></span>
+					<span><input type='checkbox' name='habit1done' value='18'></span>
+					<span><input type='checkbox' name='habit1done' value='19'></span>
+					<span><input type='checkbox' name='habit1done' value='20'></span>
+					<span><input type='checkbox' name='habit1done' value='21'></span>
+					<span><input type='checkbox' name='habit1done' value='22'></span>
+					<span><input type='checkbox' name='habit1done' value='23'></span>
+					<span><input type='checkbox' name='habit1done' value='24'></span>
+					<span><input type='checkbox' name='habit1done' value='25'></span>
+					<span><input type='checkbox' name='habit1done' value='26'></span>
+					<span><input type='checkbox' name='habit1done' value='27'></span>
+					<span><input type='checkbox' name='habit1done' value='28'></span>
+					<span><input type='checkbox' name='habit1done' value='29'></span>
+					<span><input type='checkbox' name='habit1done' value='30'></span>
+					<span><input type='checkbox' name='habit1done' value='31'></span>
+				</div>
+				<div class="wrapper">
+					<span><input type="text" id="habit2" name="habit2"></span>
+					<span><input type='checkbox' name='habit2done' value='1'></span>
+					<span><input type='checkbox' name='habit2done' value='2'></span>
+					<span><input type='checkbox' name='habit2done' value='3'></span>
+					<span><input type='checkbox' name='habit2done' value='4'></span>
+					<span><input type='checkbox' name='habit2done' value='5'></span>
+					<span><input type='checkbox' name='habit2done' value='6'></span>
+					<span><input type='checkbox' name='habit2done' value='7'></span>
+					<span><input type='checkbox' name='habit2done' value='8'></span>
+					<span><input type='checkbox' name='habit2done' value='9'></span>
+					<span><input type='checkbox' name='habit2done' value='10'></span>
+					<span><input type='checkbox' name='habit2done' value='11'></span>
+					<span><input type='checkbox' name='habit2done' value='12'></span>
+					<span><input type='checkbox' name='habit2done' value='13'></span>
+					<span><input type='checkbox' name='habit2done' value='14'></span>
+					<span><input type='checkbox' name='habit2done' value='15'></span>
+					<span><input type='checkbox' name='habit2done' value='16'></span>
+					<span><input type='checkbox' name='habit2done' value='17'></span>
+					<span><input type='checkbox' name='habit2done' value='18'></span>
+					<span><input type='checkbox' name='habit2done' value='19'></span>
+					<span><input type='checkbox' name='habit2done' value='20'></span>
+					<span><input type='checkbox' name='habit2done' value='21'></span>
+					<span><input type='checkbox' name='habit2done' value='22'></span>
+					<span><input type='checkbox' name='habit2done' value='23'></span>
+					<span><input type='checkbox' name='habit2done' value='24'></span>
+					<span><input type='checkbox' name='habit2done' value='25'></span>
+					<span><input type='checkbox' name='habit2done' value='26'></span>
+					<span><input type='checkbox' name='habit2done' value='27'></span>
+					<span><input type='checkbox' name='habit2done' value='28'></span>
+					<span><input type='checkbox' name='habit2done' value='29'></span>
+					<span><input type='checkbox' name='habit2done' value='30'></span>
+					<span><input type='checkbox' name='habit2done' value='31'></span>
+				</div>
+				<div class="wrapper">
+					<span><input type="text" id="habit3" name="habit3"></span>
+					<span><input type='checkbox' name='habit3done' value='1'></span>
+					<span><input type='checkbox' name='habit3done' value='2'></span>
+					<span><input type='checkbox' name='habit3done' value='3'></span>
+					<span><input type='checkbox' name='habit3done' value='4'></span>
+					<span><input type='checkbox' name='habit3done' value='5'></span>
+					<span><input type='checkbox' name='habit3done' value='6'></span>
+					<span><input type='checkbox' name='habit3done' value='7'></span>
+					<span><input type='checkbox' name='habit3done' value='8'></span>
+					<span><input type='checkbox' name='habit3done' value='9'></span>
+					<span><input type='checkbox' name='habit3done' value='10'></span>
+					<span><input type='checkbox' name='habit3done' value='11'></span>
+					<span><input type='checkbox' name='habit3done' value='12'></span>
+					<span><input type='checkbox' name='habit3done' value='13'></span>
+					<span><input type='checkbox' name='habit3done' value='14'></span>
+					<span><input type='checkbox' name='habit3done' value='15'></span>
+					<span><input type='checkbox' name='habit3done' value='16'></span>
+					<span><input type='checkbox' name='habit3done' value='17'></span>
+					<span><input type='checkbox' name='habit3done' value='18'></span>
+					<span><input type='checkbox' name='habit3done' value='19'></span>
+					<span><input type='checkbox' name='habit3done' value='20'></span>
+					<span><input type='checkbox' name='habit3done' value='21'></span>
+					<span><input type='checkbox' name='habit3done' value='22'></span>
+					<span><input type='checkbox' name='habit3done' value='23'></span>
+					<span><input type='checkbox' name='habit3done' value='24'></span>
+					<span><input type='checkbox' name='habit3done' value='25'></span>
+					<span><input type='checkbox' name='habit3done' value='26'></span>
+					<span><input type='checkbox' name='habit3done' value='27'></span>
+					<span><input type='checkbox' name='habit3done' value='28'></span>
+					<span><input type='checkbox' name='habit3done' value='29'></span>
+					<span><input type='checkbox' name='habit3done' value='30'></span>
+					<span><input type='checkbox' name='habit3done' value='31'></span>
+				</div>
+				<div class="wrapper">
+					<span><input type="text" id="habit4" name="habit4"></span>
+					<span><input type='checkbox' name='habit4done' value='1'></span>
+					<span><input type='checkbox' name='habit4done' value='2'></span>
+					<span><input type='checkbox' name='habit4done' value='3'></span>
+					<span><input type='checkbox' name='habit4done' value='4'></span>
+					<span><input type='checkbox' name='habit4done' value='5'></span>
+					<span><input type='checkbox' name='habit4done' value='6'></span>
+					<span><input type='checkbox' name='habit4done' value='7'></span>
+					<span><input type='checkbox' name='habit4done' value='8'></span>
+					<span><input type='checkbox' name='habit4done' value='9'></span>
+					<span><input type='checkbox' name='habit4done' value='10'></span>
+					<span><input type='checkbox' name='habit4done' value='11'></span>
+					<span><input type='checkbox' name='habit4done' value='12'></span>
+					<span><input type='checkbox' name='habit4done' value='13'></span>
+					<span><input type='checkbox' name='habit4done' value='14'></span>
+					<span><input type='checkbox' name='habit4done' value='15'></span>
+					<span><input type='checkbox' name='habit4done' value='16'></span>
+					<span><input type='checkbox' name='habit4done' value='17'></span>
+					<span><input type='checkbox' name='habit4done' value='18'></span>
+					<span><input type='checkbox' name='habit4done' value='19'></span>
+					<span><input type='checkbox' name='habit4done' value='20'></span>
+					<span><input type='checkbox' name='habit4done' value='21'></span>
+					<span><input type='checkbox' name='habit4done' value='22'></span>
+					<span><input type='checkbox' name='habit4done' value='23'></span>
+					<span><input type='checkbox' name='habit4done' value='24'></span>
+					<span><input type='checkbox' name='habit4done' value='25'></span>
+					<span><input type='checkbox' name='habit4done' value='26'></span>
+					<span><input type='checkbox' name='habit4done' value='27'></span>
+					<span><input type='checkbox' name='habit4done' value='28'></span>
+					<span><input type='checkbox' name='habit4done' value='29'></span>
+					<span><input type='checkbox' name='habit4done' value='30'></span>
+					<span><input type='checkbox' name='habit4done' value='31'></span>
+				</div>
+				<div class="wrapper">
+					<span><input type="text" id="habit5" name="habit5"></span>
+					<span><input type='checkbox' name='habit5done' value='1'></span>
+					<span><input type='checkbox' name='habit5done' value='2'></span>
+					<span><input type='checkbox' name='habit5done' value='3'></span>
+					<span><input type='checkbox' name='habit5done' value='4'></span>
+					<span><input type='checkbox' name='habit5done' value='5'></span>
+					<span><input type='checkbox' name='habit5done' value='6'></span>
+					<span><input type='checkbox' name='habit5done' value='7'></span>
+					<span><input type='checkbox' name='habit5done' value='8'></span>
+					<span><input type='checkbox' name='habit5done' value='9'></span>
+					<span><input type='checkbox' name='habit5done' value='10'></span>
+					<span><input type='checkbox' name='habit5done' value='11'></span>
+					<span><input type='checkbox' name='habit5done' value='12'></span>
+					<span><input type='checkbox' name='habit5done' value='13'></span>
+					<span><input type='checkbox' name='habit5done' value='14'></span>
+					<span><input type='checkbox' name='habit5done' value='15'></span>
+					<span><input type='checkbox' name='habit5done' value='16'></span>
+					<span><input type='checkbox' name='habit5done' value='17'></span>
+					<span><input type='checkbox' name='habit5done' value='18'></span>
+					<span><input type='checkbox' name='habit5done' value='19'></span>
+					<span><input type='checkbox' name='habit5done' value='20'></span>
+					<span><input type='checkbox' name='habit5done' value='21'></span>
+					<span><input type='checkbox' name='habit5done' value='22'></span>
+					<span><input type='checkbox' name='habit5done' value='23'></span>
+					<span><input type='checkbox' name='habit5done' value='24'></span>
+					<span><input type='checkbox' name='habit5done' value='25'></span>
+					<span><input type='checkbox' name='habit5done' value='26'></span>
+					<span><input type='checkbox' name='habit5done' value='27'></span>
+					<span><input type='checkbox' name='habit5done' value='28'></span>
+					<span><input type='checkbox' name='habit5done' value='29'></span>
+					<span><input type='checkbox' name='habit5done' value='30'></span>
+					<span><input type='checkbox' name='habit5done' value='31'></span>
+				</div>
+				<div class="wrapper">
+					<span><input type="text" id="habit6" name="habit6"></span>
+					<span><input type='checkbox' name='habit6done' value='1'></span>
+					<span><input type='checkbox' name='habit6done' value='2'></span>
+					<span><input type='checkbox' name='habit6done' value='3'></span>
+					<span><input type='checkbox' name='habit6done' value='4'></span>
+					<span><input type='checkbox' name='habit6done' value='5'></span>
+					<span><input type='checkbox' name='habit6done' value='6'></span>
+					<span><input type='checkbox' name='habit6done' value='7'></span>
+					<span><input type='checkbox' name='habit6done' value='8'></span>
+					<span><input type='checkbox' name='habit6done' value='9'></span>
+					<span><input type='checkbox' name='habit6done' value='10'></span>
+					<span><input type='checkbox' name='habit6done' value='11'></span>
+					<span><input type='checkbox' name='habit6done' value='12'></span>
+					<span><input type='checkbox' name='habit6done' value='13'></span>
+					<span><input type='checkbox' name='habit6done' value='14'></span>
+					<span><input type='checkbox' name='habit6done' value='15'></span>
+					<span><input type='checkbox' name='habit6done' value='16'></span>
+					<span><input type='checkbox' name='habit6done' value='17'></span>
+					<span><input type='checkbox' name='habit6done' value='18'></span>
+					<span><input type='checkbox' name='habit6done' value='19'></span>
+					<span><input type='checkbox' name='habit6done' value='20'></span>
+					<span><input type='checkbox' name='habit6done' value='21'></span>
+					<span><input type='checkbox' name='habit6done' value='22'></span>
+					<span><input type='checkbox' name='habit6done' value='23'></span>
+					<span><input type='checkbox' name='habit6done' value='24'></span>
+					<span><input type='checkbox' name='habit6done' value='25'></span>
+					<span><input type='checkbox' name='habit6done' value='26'></span>
+					<span><input type='checkbox' name='habit6done' value='27'></span>
+					<span><input type='checkbox' name='habit6done' value='28'></span>
+					<span><input type='checkbox' name='habit6done' value='29'></span>
+					<span><input type='checkbox' name='habit6done' value='30'></span>
+					<span><input type='checkbox' name='habit6done' value='31'></span>
+				</div>
+				<div><button onClick='savehabit()'>save</button></div>
+			</form>
+
+
+			<script>
+				//to get the current date
+				const d = new Date();
+				const datestring = d.toDateString()
+					.replace(/ /g, "_");
+
+				// function for the info box to pop up upon hover
+				$(function () {
+					$(document)
+						.tooltip();
+				});
+
+				//stuff down below, for the database, helps us keep track of what month the data is from
+				const form = document.querySelector('#habittable');
+				const months = 'January February March April May June July August September October November December'.split(' ');
+				const date = new Date();
+				const month = months[date.getMonth()]
+				form.action = `/~/mayneet/account/habittable/${month}`;
+
+				window.onload = function () {
+					var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+					var date = new Date();
+
+					document.getElementById('date')
+						.innerHTML = months[date.getMonth()];
+
+				}
+
+				async function updateHabit() {
+					const resp = await fetch(`/~/moode/account/habittable_${month}?all=true`, {
+						method: 'GET',
+						headers: { 'content-Type': 'application/json' }
+					})
+					const ans = await resp.json();
+
+					if (!ans.length) return
+
+
+					const habitChoices = ans[ans.length - 1];
+					(document.getElementById('habit1') || {})
+					.value = habitChoices.habit1;
+					(document.getElementById('habit2') || {})
+					.value = habitChoices.habit2;
+					(document.getElementById('habit3') || {})
+					.value = habitChoices.habit3;
+					(document.getElementById('habit4') || {})
+					.value = habitChoices.habit4;
+					(document.getElementById('habit5') || {})
+					.value = habitChoices.habit5;
+					(document.getElementById('habit6') || {})
+					.value = habitChoices.habit6;
+
+					var habit1finish =
+						document.getElementsByName('habit1done')
+
+					habitChoices.habit1done.forEach(n => habit1finish[n - 1].checked = true)
+
+					var habit2finish =
+						document.getElementsByName('habit2done')
+
+					habitChoices.habit2done.forEach(n => habit2finish[n - 1].checked = true)
+
+					var habit3finish =
+						document.getElementsByName('habit3done')
+
+					habitChoices.habit3done.forEach(n => habit3finish[n - 1].checked = true)
+
+					var habit4finish =
+						document.getElementsByName('habit4done')
+
+					habitChoices.habit4done.forEach(n => habit4finish[n - 1].checked = true)
+
+					var habit5finish =
+						document.getElementsByName('habit5done')
+
+					habitChoices.habit5done.forEach(n => habit5finish[n - 1].checked = true)
+
+					var habit6finish =
+						document.getElementsByName('habit6done')
+
+					habitChoices.habit6done.forEach(n => habit6finish[n - 1].checked = true)
+
+				}
+
+				updateHabit();
+
+				document.getElementById("habittable")
+					.action = `/~/mayneet/account/habittable_${month}`
+			</script>
+		</div>
+
+		<footer>
+			MAYNEET ©
+		</footer>
+
+	</body>
+
+</html>

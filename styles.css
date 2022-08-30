@@ -1,0 +1,268 @@
+/*importing Roboto font for nav bar*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/*importing Comfortaa font for title*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto:wght@300&display=swap');
+		
+/*importing Monserrat font for title*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+	/* background image */
+	background-image: url("background.jpg");
+
+	/* centering the bg image */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	
+
+	/* scaling the bg image */
+	width: 1440px;
+	height: 890px;
+}
+
+nav {
+	/*positioning and styling the nav bar*/
+	position: absolute;
+	width: 1205.73px;
+	height: 41.66px;
+	left: 120px;
+	top: 25px;
+	margin: 0.1em;
+	text-align: center;
+	background-color: #E3DBD0;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+/*styling the text of the nav bar buttons*/
+/*nav a {*/
+
+a:-webkit-any-link {
+	color: black;
+	text-decoration: none;
+	/*spacing between each button*/
+	padding: 1.5em;
+	cursor: pointer;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 35px;
+}
+
+/*text turns white upon hovering*/
+a:-webkit-any-link:hover {
+	color:white;
+}
+
+
+/*aligning elements */
+main {
+	background-size: cover;
+	background-position: 50% 50%;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/*styling the mood-e title*/
+main h1 {
+	font-family: 'Comfortaa';
+	font-style: normal;
+	font-weight: bold;
+	font-size: 130px;
+	line-height: 145px;
+	text-shadow: #171515 -13px 5px;
+	color: #EDDAB4;
+}
+
+/*styling the description text*/
+main h2 {
+	text-align: center;
+	align-items: center;
+	left: 500px;
+	top: 450px;
+	background-color: #E3DBD0;
+	border-radius: 10px;
+	padding: 20px;
+	font-family: 'Roboto';
+}
+
+
+
+p {
+	font-family: 'Roboto';
+	font-size: 20px;
+	text-align: center;
+}
+
+/*styling for footer, 'mayneet' tag*/
+footer {
+	position: absolute;
+	font-family: 'Comfortaa';
+	font-size: 30px;
+	top: 700px;
+	left: 650px;
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	color: #000000;
+}
+
+nav b {
+	font-weight: bolder;
+	font-size:32px;
+}
+
+h3 d {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*.wrapper { */
+/*position: absolute;	*/
+/*bottom: 503px;*/
+/*left: 320px;*/
+/*}*/
+
+
+/*.wrapper1 { */
+/*position: absolute;	*/
+/*bottom: 450px;*/
+/*left: 320px;*/
+/*}*/
+
+
+/*.wrapper2 { */
+/*position: absolute;	*/
+/*bottom: 399px;*/
+/*left: 320px;*/
+/*}*/
+
+/*.wrapper3 { */
+/*position: absolute;	*/
+/*bottom: 349px;*/
+/*left: 320px;*/
+/*}*/
+
+/*.wrapper4 { */
+/*position: absolute;	*/
+/*bottom: 298px;*/
+/*left: 320px;*/
+/*}*/
+
+/*.wrapper5 { */
+/*position: absolute;*/
+/*bottom: 246px;*/
+/*left: 320px;*/
+/*}*/
+
+main div p3 {
+position: absolute;
+width: 1050px;
+height: 12px;
+top: 245px;
+left: 325px;
+
+font-family: Montserrat;
+/*font-style: normal;*/
+font-weight: bold;
+font-size: 20px;
+letter-spacing: 9px;
+
+color: #000000;		
+}
+
+main div p1 {
+position: absolute;
+width: 1050px;
+height: 12px;
+top: 245px;
+left: 630px;
+
+font-family: Montserrat;
+/*font-style: normal;*/
+font-weight: bold;
+font-size: 20px;
+letter-spacing: 4px;
+
+color: #000000;		
+}
+
+main div p2 {
+position: absolute;
+width: 1050px;
+height: 12px;
+top: 245px;
+left: 983px;
+
+font-family: Montserrat;
+/*font-style: normal;*/
+font-weight: bold;
+font-size: 20px;
+letter-spacing: 2.5px;
+
+color: #000000;		
+}
+
+
+c input {
+	font-size: 40px;	
+	margin-bottom: 0.5em;
+	font-family: Montserrat;
+	text-align: center;
+	border-radius: 10px;
+}
+
+loginb input {
+	position: absolute;
+	left: 46% ;
+	font-size: 40px;	
+	margin-bottom: 0.5em;
+	font-family: Montserrat;
+	text-align: center;
+	border-radius: 10px;
+}
+
+signupb input {
+	position: absolute;
+	left: 45%;
+	font-size: 40px;	
+	margin-bottom: 0.5em;
+	font-family: Montserrat;
+	text-align: center;
+	border-radius: 10px;
+
+}
+
+/*.ui-datepicker-month {*/
+/*font-weight: bolder;*/
+/*font-family: Montserrat;*/
+/*}*/
+	    	
+/*.ui-datepicker-year {*/
+/*font-weight: bolder;*/
+/*font-family: Montserrat;*/
+/*}*/
+
+/*tr {*/
+/*font-weight: bolder;*/
+/*font-family: Montserrat;*/
+/*}*/
+
+/*.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {*/
+/*font-family: Montserrat;*/
+/*font-size: 25px*/
+/*}*/
+
+/*.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {*/
+/*background: #e3dbd0;*/
+/*}*/
